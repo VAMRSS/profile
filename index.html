@@ -18,19 +18,23 @@
       margin-bottom: 40px;
     }
     .links a {
-      display: block;
-      margin: 10px auto;
-      padding: 12px 24px;
-      width: 250px;
-      background: #000;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 0px;
-      transition: background 0.3s ease;
-    }
-    .links a:hover {
-      background: #333;
-    }
+  display: block;
+  margin: 10px auto;
+  padding: 12px 24px;
+  width: 250px;
+  background: rgba(0, 0, 0, 0.05); /* 半透明背景 */
+  color: #333; /* 文字は濃いグレー系 */
+  text-decoration: none;
+  border: 2px solid #333; /* 濃いグレーの枠線 */
+  border-radius: 12px; /* より丸める場合は数値を大きく */
+  transition: all 0.3s ease;
+}
+
+.links a:hover {
+  background: rgba(0, 0, 0, 0.1); /* 少し濃くなる */
+  color: #000; /* 文字も少し濃く */
+  border-color: #000; /* 枠線も濃く */
+}
   </style>
 </head>
 <body>
