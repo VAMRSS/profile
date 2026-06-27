@@ -2,10 +2,10 @@
 <html lang="ja" data-theme="light">
 <head>
   <meta charset="utf-8">
-  <link rel="icon" href="./images/favicon.png" type="image/png">
+  <link rel="icon" href="../images/favicon.png" type="image/png">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>VAMRSS</title>
-  <meta name="description" content="VAMRSS official portfolio and works database.">
+  <title>(VAMRSS) WSV UPDATES</title>
+  <meta name="description" content="(VAMRSS) WORKSHEET VAULT SYSTEM public update log.">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
 
@@ -2785,53 +2785,54 @@
       transform: none !important;
     }
 
+    /* v3.9.28 updates page */
+    #updatesScreen .work-no {
+      font-size: 11px;
+      letter-spacing: 0.02em;
+    }
+
+    #updatesScreen .list-head span {
+      display: block;
+    }
+
+    /* v3.9.28 updates table layout */
+    #updatesScreen .update-kind-label {
+      color: var(--sub);
+      margin-right: 0.55em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    #updatesScreen .work-year {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* v3.9.28 updates no search / date column alignment */
+    #updatesScreen .list-head,
+    #updatesScreen .work-summary {
+      grid-template-columns: 4.5em minmax(0, 1fr) 9.5ch !important;
+      column-gap: 1em !important;
+      align-items: baseline !important;
+    }
+
+    #updatesScreen .list-head span:nth-child(3),
+    #updatesScreen .work-year {
+      width: 9.5ch !important;
+      min-width: 9.5ch !important;
+      justify-self: start !important;
+      text-align: left !important;
+      font-variant-numeric: tabular-nums;
+    }
+
+    #updatesScreen #searchInput[type="hidden"] {
+      display: none !important;
+    }
+
     /* v3.9.28 unified reversed sort arrows */
     .sort-mark,
     .sort-mark.desc {
       transform: none !important;
-    }
-
-    /* v3.9.28 expanded detail close button */
-    .detail-close-row {
-      margin-top: 1.5em;
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .detail-close-button {
-      color: var(--sub);
-    }
-
-    /* v3.9.28 share and individual page actions */
-    .share-action-row {
-      margin-top: 1.5em;
-      display: flex;
-      justify-content: flex-end;
-      gap: 1.25em;
-      flex-wrap: wrap;
-    }
-
-    .share-action-row .text-button {
-      color: var(--sub);
-    }
-
-    /* v3.9.28 lightweight list and lazy detail loading */
-    .detail-loading {
-      color: var(--sub);
-      font-size: 12px;
-      padding: 4px 0 10px;
-    }
-
-    /* v3.9.28 selected number marker */
-    .work.is-current .work-no,
-    .series-work-row.is-current .detail-key {
-      display: inline-block;
-      width: fit-content;
-      min-width: 0;
-      color: var(--bg) !important;
-      background: var(--ink) !important;
-      padding: 0 0.35em;
-      line-height: 1.55;
     }
 
   </style>
@@ -2844,48 +2845,28 @@
     <div class="fixed-copyright-mark">(C) 2026 SHIRASUSALAD</div>
     <div class="fixed-version-mark">v3.9.28</div>
 
-    <section id="worksScreen" class="screen active">
+    <section id="updatesScreen" class="screen active">
       <div class="topbar">
         <h1 class="site-title">
           <button class="site-logo" type="button" onclick="toggleTheme()" aria-label="Toggle light and dark theme">
-            <img class="site-logo-img" src="./admin/assets/wsv-logo.svg" alt="(VAMRSS) WSV">
+            <img class="site-logo-img" src="../admin/assets/wsv-logo.svg" alt="(VAMRSS) WSV">
           </button>
         </h1>
         <nav class="text-nav">
-          <a class="text-button" href="./updates/">UPDATES</a>
-          <a class="text-button" href="./profile/">ABOUT</a>
+          <a class="text-button" href="../">HOME</a>
+          <a class="text-button" href="../profile/">ABOUT</a>
         </nav>
       </div>
 
-      <div class="link-list mode-switch" style="margin-bottom: 9px;">
-        <button class="text-button selected" type="button" id="worksModeButton" onclick="setListMode('works')">WORKS</button>
-        <button class="text-button" type="button" id="seriesModeButton" onclick="setListMode('series')">SERIES</button>
-      </div>
-
-      <div class="filter-area" id="worksFilterArea">
-        <div class="link-list bracket-switch" id="techniqueLinks"></div>
-      </div>
-
-      <div class="portfolio-search-line" id="portfolioSearchLine">
-        <button class="text-button" type="button" onclick="toggleStatusPanel()" id="statusPanelText">＋</button>
-        <div class="portfolio-search-wrap" id="inlineSearchWrap">
-          <input id="searchInput" type="search" placeholder="SEARCH">
-        </div>
-        <button class="text-button portfolio-search-reset" type="button" onclick="clearFilters()">RESET</button>
-      </div>
-
-      <div class="collapsible" id="statusPanel">
-        <div class="link-list bracket-switch" id="productionLinks"></div>
-        <div class="link-list bracket-switch" id="managementLinks"></div>
-      </div>
-
       <div class="list-head">
-        <button class="text-button" type="button" onclick="setSort('workNo')">№<span id="sortMarkWorkNo"></span></button>
-        <button class="text-button" type="button" onclick="setSort('title')">TITLE<span id="sortMarkTitle"></span></button>
-        <button class="text-button" type="button" onclick="setSort('year')">DONE<span id="sortMarkYear"></span></button>
+        <span>№</span>
+        <span>TITLE</span>
+        <span>DATE</span>
       </div>
 
-      <div id="status" class="portfolio-note">公開作品を読み込み中です。</div>
+      <input id="searchInput" type="hidden" value="">
+
+      <div id="status" class="portfolio-note">更新情報を読み込み中です。</div>
       <div id="workList" class="list"></div>
     </section>
   </main>
@@ -3073,25 +3054,19 @@ function normalizeWorkNo(value) {
         </div>`;
     }
 
-    window.toggleInlineSeries = async function(seriesId, hostId = "") {
+    window.toggleInlineSeries = function(seriesId, hostId = "") {
       const safeHostId = hostId || seriesId;
       const target = document.getElementById(`inline-series-${safeHostId}-${seriesId}`);
       if (!target) return;
       if (target.dataset.open === "1") {
         target.innerHTML = "";
         target.dataset.open = "";
-        requestAnimationFrame(() => scrollItemToTop(markerRow));
         return;
       }
+      const series = seriesRecords.find(item => item.id === seriesId);
+      if (!series) return;
       target.dataset.open = "1";
-      target.innerHTML = '<div class="detail-loading">Loading detail...</div>';
-      try {
-        const series = await loadPublicSeriesDetail(seriesId);
-        target.innerHTML = seriesDetailHtml(series);
-      } catch (error) {
-        console.error(error);
-        target.innerHTML = '<div class="detail-loading">Detail could not be loaded.</div>';
-      }
+      target.innerHTML = seriesDetailHtml(series);
     };
 
 
@@ -3194,14 +3169,8 @@ function normalizeWorkNo(value) {
       return `<div class="detail-row image-detail-row media-compact-row"><div class="detail-value"><div class="work-image-gallery">${items}</div></div></div>`;
     }
 
-    function hasDisplayValue(value) {
-      if (value === null || value === undefined) return false;
-      if (Array.isArray(value)) return value.length > 0;
-      return String(value).trim() !== "";
-    }
-
     function row(key, value) {
-      if (!hasDisplayValue(value)) return "";
+      if (value === null || value === undefined || String(value).trim() === "") return "";
       return `<div class="detail-row"><div class="detail-key">${escapeHtml(key)}</div><div class="detail-value">${escapeHtml(value)}</div></div>`;
     }
 
@@ -3211,6 +3180,8 @@ function normalizeWorkNo(value) {
 
     function workDetailHtml(work = {}) {
       const statuses = normalizeStatuses(work);
+      const priceText = work.price_ask ? "ASK" : formatMoney(work.price_amount);
+      const costText = formatMoney(work.cost_amount);
       const workNo = normalizeWorkNo(work.work_no);
       const series = getSeriesRecordForWork(work);
       return `
@@ -3220,10 +3191,10 @@ function normalizeWorkNo(value) {
                 ${row("№", workNo)}
                 ${row("Title", work.title)}
                 ${row("T_EN", work.title_en)}
-                ${hasDisplayValue(seriesLabelHtml(series, work.id)) ? `<div class="detail-row">
+                <div class="detail-row">
                   <div class="detail-key">Series</div>
                   <div class="detail-value">${seriesLabelHtml(series, work.id)}</div>
-                </div>` : ""}
+                </div>
                 ${series && series.id ? `<div class="inline-series-host" id="inline-series-${escapeAttr(work.id)}-${escapeAttr(series.id)}"></div>` : ""}
                 ${row("Start", normalizeProductionDate(work))}
                 ${row("Completed", work.completed_date)}
@@ -3234,6 +3205,8 @@ function normalizeWorkNo(value) {
                 ${row("Technique", work.technique)}
                 ${row("Materials", work.materials)}
                 ${row("Size", formatDimensions(work))}
+                ${row("Price", "*******")}
+                ${row("Cost", "*******")}
                 ${row("Description", workDescription(work))}
                 ${row("D_EN", work.description_en)}
                 ${additionalLogoDetailRowHtml("work", work)}
@@ -3323,7 +3296,7 @@ function normalizeWorkNo(value) {
       Object.entries(map).forEach(([key, el]) => {
         if (!el) return;
         el.className = "sort-mark " + (sortDirection === "desc" ? "desc" : "");
-        el.textContent = sortKey === key ? (sortDirection === "desc" ? "↗" : "↘") : "";
+        el.textContent = sortKey === key ? (sortDirection === "desc" ? "↘" : "↗") : "";
       });
     }
 
@@ -3352,233 +3325,17 @@ function normalizeWorkNo(value) {
             seriesLabel(series),
             statuses.productionStatus,
             statuses.managementStatus,
-            w.technique
+            w.technique,
+            w.materials,
+            formatDimensions(w),
+            w.location,
+            w.holder_name,
+            w.description,
+            w.description_en,
+            relatedLinksSearchText(relatedLinksForWork(w))
           ].some(value => String(value || "").toLowerCase().includes(query));
         })
         .sort(compareWorks);
-    }
-
-    function siteBaseUrl() {
-      const path = location.pathname || "/";
-      const lower = path.toLowerCase();
-      let basePath = path;
-      ["/work/", "/series/", "/updates/", "/profile/", "/admin/", "/portfolio/"].forEach(segment => {
-        const index = lower.indexOf(segment);
-        if (index >= 0) basePath = path.slice(0, index + 1);
-      });
-      return location.origin + basePath;
-    }
-
-    function detailUrl(type, no) {
-      const cleanNo = normalizeWorkNo(no);
-      const folder = type === "series" ? "series" : "work";
-      return `${siteBaseUrl()}${folder}/?no=${encodeURIComponent(cleanNo)}`;
-    }
-
-    async function shareDetail(type, no, title) {
-      const url = detailUrl(type, no);
-      const shareTitle = title ? `VAMRSS / ${title}` : "VAMRSS";
-      try {
-        if (navigator.share) {
-          await navigator.share({ title: shareTitle, text: shareTitle, url });
-          return;
-        }
-      } catch (error) {
-        if (error && error.name === "AbortError") return;
-      }
-      try {
-        await navigator.clipboard.writeText(url);
-        const status = document.getElementById("status");
-        if (status) { status.style.display = "block"; status.textContent = "Share URL copied."; }
-      } catch (error) {
-        window.prompt("Copy share URL", url);
-      }
-    }
-
-    function openDetailPage(type, no) {
-      const url = detailUrl(type, no);
-      const opened = window.open(url, "_blank");
-      if (opened) {
-        opened.opener = null;
-        return;
-      }
-      const status = document.getElementById("status");
-      if (status) { status.style.display = "block"; status.textContent = "Open page was blocked. Please allow pop-ups for this site."; }
-    }
-
-    function markCurrentItem(element) {
-      document.querySelectorAll(".work.is-current, .series-work-row.is-current").forEach(item => {
-        item.classList.remove("is-current");
-      });
-      if (element) element.classList.add("is-current");
-    }
-
-    function scrollItemToTop(element) {
-      if (!element) return;
-      const offset = 16;
-      const top = element.getBoundingClientRect().top + window.pageYOffset - offset;
-      window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
-    }
-
-    function replaceById(list, item) {
-      const index = list.findIndex(existing => existing.id === item.id);
-      if (index >= 0) list[index] = { ...list[index], ...item };
-      else list.push(item);
-    }
-
-    function replaceAssetsFor(type, id, assets) {
-      cloudAssets = cloudAssets.filter(asset => {
-        if (type === "work") return asset.work_id !== id;
-        return asset.series_id !== id;
-      });
-      cloudAssets.push(...(assets || []));
-    }
-
-    function replaceLinksFor(type, id, links) {
-      relatedLinks = relatedLinks.filter(link => {
-        if (type === "work") return link.work_id !== id;
-        return link.series_id !== id;
-      });
-      relatedLinks.push(...(links || []));
-    }
-
-    async function loadPublicWorkDetail(id) {
-      const current = works.find(work => work.id === id);
-      if (current && current._detailLoaded) return current;
-
-      const [workResult, assetResult] = await Promise.all([
-        cloudClient
-          .from("wsv_works")
-          .select("id,work_no,title,title_en,series_id,start_date,completed_date,production_status,management_status,technique,materials,size_h,size_w,size_d,location,holder_name,description,description_en,logo_asset_id,cover_asset_id,is_public,sort_order,created_at,updated_at,content_updated_at")
-          .eq("id", id)
-          .eq("is_public", true)
-          .maybeSingle(),
-        cloudClient
-          .from("wsv_assets")
-          .select("id,work_id,series_id,asset_type,storage_bucket,storage_path,file_name,mime_type,alt_text,caption,sort_order,is_cover,is_public,created_at,updated_at")
-          .eq("work_id", id)
-          .eq("is_public", true)
-          .in("asset_type", ["work_logo", "work_image"])
-          .order("sort_order", { ascending: true })
-      ]);
-
-      if (workResult.error) throw workResult.error;
-      if (assetResult.error) throw assetResult.error;
-      if (!workResult.data) throw new Error("WORK_NOT_FOUND");
-
-      let links = [];
-      try {
-        const linkResult = await cloudClient
-          .from("wsv_related_links")
-          .select("id,target_type,work_id,series_id,title,url,sort_order,is_public,created_at,updated_at")
-          .eq("target_type", "work")
-          .eq("work_id", id)
-          .eq("is_public", true)
-          .order("sort_order", { ascending: true });
-        if (linkResult.error) throw linkResult.error;
-        links = linkResult.data || [];
-      } catch (error) {
-        console.warn("WSV work URL links could not be loaded.", error);
-        links = [];
-      }
-
-      const fullWork = { ...(current || {}), ...workResult.data, _detailLoaded: true };
-      replaceById(works, fullWork);
-      replaceAssetsFor("work", id, assetResult.data || []);
-      replaceLinksFor("work", id, links);
-      return fullWork;
-    }
-
-    async function loadPublicSeriesDetail(id) {
-      const current = seriesRecords.find(series => series.id === id);
-      if (current && current._detailLoaded) return current;
-
-      const [seriesResult, assetResult] = await Promise.all([
-        cloudClient
-          .from("wsv_series")
-          .select("id,series_no,code,title,title_en,start_date,description,description_en,logo_asset_id,is_public,sort_order,created_at,updated_at,content_updated_at")
-          .eq("id", id)
-          .eq("is_public", true)
-          .maybeSingle(),
-        cloudClient
-          .from("wsv_assets")
-          .select("id,work_id,series_id,asset_type,storage_bucket,storage_path,file_name,mime_type,alt_text,caption,sort_order,is_cover,is_public,created_at,updated_at")
-          .eq("series_id", id)
-          .eq("is_public", true)
-          .eq("asset_type", "series_logo")
-          .order("sort_order", { ascending: true })
-      ]);
-
-      if (seriesResult.error) throw seriesResult.error;
-      if (assetResult.error) throw assetResult.error;
-      if (!seriesResult.data) throw new Error("SERIES_NOT_FOUND");
-
-      let links = [];
-      try {
-        const linkResult = await cloudClient
-          .from("wsv_related_links")
-          .select("id,target_type,work_id,series_id,title,url,sort_order,is_public,created_at,updated_at")
-          .eq("target_type", "series")
-          .eq("series_id", id)
-          .eq("is_public", true)
-          .order("sort_order", { ascending: true });
-        if (linkResult.error) throw linkResult.error;
-        links = linkResult.data || [];
-      } catch (error) {
-        console.warn("WSV series URL links could not be loaded.", error);
-        links = [];
-      }
-
-      const fullSeries = { ...(current || {}), ...seriesResult.data, _detailLoaded: true };
-      replaceById(seriesRecords, fullSeries);
-      replaceAssetsFor("series", id, assetResult.data || []);
-      replaceLinksFor("series", id, links);
-      return fullSeries;
-    }
-
-    function workDetailContentHtml(work) {
-      const no = normalizeWorkNo(work.work_no);
-      return `${workDetailHtml(work)}
-              <div class="share-action-row">
-                <button class="text-button" type="button" onclick="openDetailPage('work', '${escapeAttr(no)}')">SHARE</button>
-                <button class="text-button detail-close-button" type="button" onclick="toggleWork('${escapeAttr(work.id)}')">CLOSE</button>
-              </div>`;
-    }
-
-    function seriesDetailContentHtml(series) {
-      const no = normalizeWorkNo(series.series_no);
-      const relatedWorks = works
-        .filter(work => work.series_id === series.id)
-        .sort(compareWorks);
-      return `
-              <div class="detail-grid">
-                ${logoDetailRowHtml("series", series)}
-                ${row("№", no)}
-                ${row("Code", series.code)}
-                ${row("Title", series.title)}
-                ${row("T_EN", series.title_en)}
-                ${row("Start", series.start_date)}
-                ${row("Works", String(relatedWorks.length))}
-                ${row("Description", series.description)}
-                ${row("D_EN", series.description_en)}
-                ${additionalLogoDetailRowHtml("series", series)}
-                ${relatedLinksDetailRowHtml(relatedLinksForSeries(series))}
-              </div>
-              <div class="share-action-row">
-                <button class="text-button" type="button" onclick="openDetailPage('series', '${escapeAttr(no)}')">SHARE</button>
-                <button class="text-button detail-close-button" type="button" onclick="toggleSeries('${escapeAttr(series.id)}')">CLOSE</button>
-              </div>
-              ${relatedWorks.length ? `
-                <div class="detail-grid">
-                  ${relatedWorks.map(work => `
-                    <div class="detail-row series-work-row">
-                      <div class="detail-key">${escapeHtml(normalizeWorkNo(work.work_no))}</div>
-                      <div class="detail-value"><button class="inline-series-link" type="button" onclick="toggleNestedWork('series-${escapeAttr(series.id)}', '${escapeAttr(work.id)}')">${escapeHtml(workTitle(work))}</button></div>
-                    </div>
-                    <div id="series-${escapeAttr(series.id)}-work-${escapeAttr(work.id)}"></div>
-                  `).join("")}
-                </div>
-              ` : ""}`;
     }
 
     function renderWorksList() {
@@ -3599,8 +3356,8 @@ function normalizeWorkNo(value) {
               <div class="work-title"><span class="title-scroll">${workListTitleHtml(w)}</span></div>
               <div class="work-year">${escapeHtml(w.completed_date || "")}</div>
             </button>
-            <div class="work-detail" id="work-detail-${escapeAttr(w.id)}" data-loaded="">
-              <div class="detail-loading">Detail will load when opened.</div>
+            <div class="work-detail">
+              ${workDetailHtml(w)}
             </div>
           </article>
         `;
@@ -3619,7 +3376,10 @@ function normalizeWorkNo(value) {
             s.code,
             s.title,
             s.title_en,
-            s.start_date
+            s.start_date,
+            s.description,
+            s.description_en,
+            relatedLinksSearchText(relatedLinksForSeries(s))
           ].some(value => String(value || "").toLowerCase().includes(query));
         })
         .sort(compareSeries);
@@ -3642,8 +3402,31 @@ function normalizeWorkNo(value) {
               <div class="work-title"><span class="title-scroll">${escapeHtml(s.code ? s.code + " / " : "")}${escapeHtml(seriesTitle(s))}</span></div>
               <div class="work-year">${escapeHtml(s.start_date || "")}</div>
             </button>
-            <div class="work-detail" id="series-detail-${escapeAttr(s.id)}" data-loaded="">
-              <div class="detail-loading">Detail will load when opened.</div>
+            <div class="work-detail">
+              <div class="detail-grid">
+                ${logoDetailRowHtml("series", s)}
+                ${row("№", no)}
+                ${row("Code", s.code)}
+                ${row("Title", s.title)}
+                ${row("T_EN", s.title_en)}
+                ${row("Start", s.start_date)}
+                ${row("Works", String(relatedWorks.length))}
+                ${row("Description", s.description)}
+                ${row("D_EN", s.description_en)}
+                ${additionalLogoDetailRowHtml("series", s)}
+                ${relatedLinksDetailRowHtml(relatedLinksForSeries(s))}
+              </div>
+              ${relatedWorks.length ? `
+                <div class="detail-grid">
+                  ${relatedWorks.map(w => `
+                    <div class="detail-row series-work-row">
+                      <div class="detail-key">${escapeHtml(normalizeWorkNo(w.work_no))}</div>
+                      <div class="detail-value"><button class="inline-series-link" type="button" onclick="toggleNestedWork('series-${escapeAttr(s.id)}', '${escapeAttr(w.id)}')">${escapeHtml(workTitle(w))}</button></div>
+                    </div>
+                    <div id="series-${escapeAttr(s.id)}-work-${escapeAttr(w.id)}"></div>
+                  `).join("")}
+                </div>
+              ` : ""}
             </div>
           </article>
         `;
@@ -3679,57 +3462,20 @@ function normalizeWorkNo(value) {
       }
     }
 
-    window.toggleWork = async function(id) {
-      const article = document.getElementById("work-" + id);
-      const detail = document.getElementById("work-detail-" + id);
-      if (!article || !detail) return;
-      markCurrentItem(article);
-      if (article.classList.contains("open")) {
-        article.classList.remove("open");
-        requestAnimationFrame(() => scrollItemToTop(article));
-        return;
-      }
-      article.classList.add("open");
-      if (detail.dataset.loaded === "1") return;
-      detail.innerHTML = '<div class="detail-loading">Loading detail...</div>';
-      try {
-        const work = await loadPublicWorkDetail(id);
-        detail.dataset.loaded = "1";
-        detail.innerHTML = workDetailContentHtml(work);
-      } catch (error) {
-        console.error(error);
-        detail.innerHTML = '<div class="detail-loading">Detail could not be loaded.</div>';
-      }
+    window.toggleWork = function(id) {
+      const target = document.getElementById("work-" + id);
+      if (target) target.classList.toggle("open");
     };
 
-    window.toggleSeries = async function(id) {
-      const article = document.getElementById("series-" + id);
-      const detail = document.getElementById("series-detail-" + id);
-      if (!article || !detail) return;
-      markCurrentItem(article);
-      if (article.classList.contains("open")) {
-        article.classList.remove("open");
-        requestAnimationFrame(() => scrollItemToTop(article));
-        return;
-      }
-      article.classList.add("open");
-      if (detail.dataset.loaded === "1") return;
-      detail.innerHTML = '<div class="detail-loading">Loading detail...</div>';
-      try {
-        const series = await loadPublicSeriesDetail(id);
-        detail.dataset.loaded = "1";
-        detail.innerHTML = seriesDetailContentHtml(series);
-      } catch (error) {
-        console.error(error);
-        detail.innerHTML = '<div class="detail-loading">Detail could not be loaded.</div>';
-      }
+    window.toggleSeries = function(id) {
+      const target = document.getElementById("series-" + id);
+      if (target) target.classList.toggle("open");
     };
 
-    window.toggleNestedWork = async function(hostId, workId) {
+    window.toggleNestedWork = function(hostId, workId) {
       const target = document.getElementById(`${hostId}-work-${workId}`);
-      if (!target) return;
-      const markerRow = target.previousElementSibling || target;
-      markCurrentItem(markerRow);
+      const w = works.find(item => item.id === workId);
+      if (!target || !w) return;
 
       if (target.dataset.open === "1") {
         target.innerHTML = "";
@@ -3738,22 +3484,11 @@ function normalizeWorkNo(value) {
       }
 
       target.dataset.open = "1";
-      target.innerHTML = '<div class="inline-expanded detail-loading" style="margin-top:1em; margin-bottom:1em;">Loading detail...</div>';
-      try {
-        const work = await loadPublicWorkDetail(workId);
-        target.innerHTML = `
-          <div class="inline-expanded" style="margin-top:1em; margin-bottom:1em;">
-            ${workDetailHtml(work)}
-            <div class="share-action-row">
-              <button class="text-button" type="button" onclick="openDetailPage('work', '${escapeAttr(normalizeWorkNo(work.work_no))}')">SHARE</button>
-              <button class="text-button detail-close-button" type="button" onclick="toggleNestedWork('${escapeAttr(hostId)}', '${escapeAttr(work.id)}')">CLOSE</button>
-            </div>
-          </div>
-        `;
-      } catch (error) {
-        console.error(error);
-        target.innerHTML = '<div class="inline-expanded detail-loading" style="margin-top:1em; margin-bottom:1em;">Detail could not be loaded.</div>';
-      }
+      target.innerHTML = `
+        <div class="inline-expanded" style="margin-top:1em; margin-bottom:1em;">
+          ${workDetailHtml(w)}
+        </div>
+      `;
     };
 
     window.setListMode = function(mode) {
@@ -3798,38 +3533,251 @@ function normalizeWorkNo(value) {
       localStorage.setItem("wsvPortfolioTheme", next);
     };
 
+
+    function timestampFromValue(value) {
+      const time = Date.parse(value || "");
+      return Number.isFinite(time) ? time : 0;
+    }
+
+    function maxTimestamp(values = []) {
+      return values.reduce((max, value) => Math.max(max, timestampFromValue(value)), 0);
+    }
+
+    function isoFromTimestamp(timestamp) {
+      if (!timestamp) return "";
+      return new Date(timestamp).toISOString();
+    }
+
+    function formatUpdateDate(value) {
+      const timestamp = typeof value === "number" ? value : timestampFromValue(value);
+      if (!timestamp) return "----- -- --".replaceAll(" ", "");
+      const d = new Date(timestamp);
+      const y = d.getFullYear();
+      const m = String(d.getMonth() + 1).padStart(2, "0");
+      const day = String(d.getDate()).padStart(2, "0");
+      return `${y}-${m}-${day}`;
+    }
+
+    function updateTimestampForWork(work = {}) {
+      return maxTimestamp([work.content_updated_at, work.created_at]);
+    }
+
+    function updateTimestampForSeries(series = {}) {
+      return maxTimestamp([series.content_updated_at, series.created_at]);
+    }
+
+    function updateSeriesDetailHtml(series = {}) {
+      const no = normalizeWorkNo(series.series_no);
+      const relatedWorks = works
+        .filter(w => w.series_id === series.id)
+        .sort(compareWorks);
+
+      return `
+        <div class="detail-grid">
+          ${logoDetailRowHtml("series", series)}
+          ${row("№", no)}
+          ${row("Code", series.code)}
+          ${row("Title", series.title)}
+          ${row("T_EN", series.title_en)}
+          ${row("Start", series.start_date)}
+          ${row("Works", String(relatedWorks.length))}
+          ${row("Description", series.description)}
+          ${row("D_EN", series.description_en)}
+          ${additionalLogoDetailRowHtml("series", series)}
+          ${relatedLinksDetailRowHtml(relatedLinksForSeries(series))}
+        </div>
+        ${relatedWorks.length ? `
+          <div class="detail-grid">
+            ${relatedWorks.map(w => `
+              <div class="detail-row series-work-row">
+                <div class="detail-key">${escapeHtml(normalizeWorkNo(w.work_no))}</div>
+                <div class="detail-value"><button class="inline-series-link" type="button" onclick="toggleNestedWork('updates-series-${escapeAttr(series.id)}', '${escapeAttr(w.id)}')">${escapeHtml(workTitle(w))}</button></div>
+              </div>
+              <div id="updates-series-${escapeAttr(series.id)}-work-${escapeAttr(w.id)}"></div>
+            `).join("")}
+          </div>
+        ` : ""}`;
+    }
+
+    function updateSearchText(item) {
+      if (item.type === "work") {
+        const w = item.record;
+        const statuses = normalizeStatuses(w);
+        const series = getSeriesRecordForWork(w);
+        return [
+          "WORK",
+          normalizeWorkNo(w.work_no),
+          workTitle(w),
+          w.title,
+          w.title_en,
+          seriesLabel(series),
+          statuses.productionStatus,
+          statuses.managementStatus,
+          w.technique,
+          w.materials,
+          w.location,
+          w.holder_name,
+          w.description,
+          w.description_en,
+          relatedLinksSearchText(relatedLinksForWork(w))
+        ].join(" ");
+      }
+
+      const s = item.record;
+      return [
+        "SERIES",
+        normalizeWorkNo(s.series_no),
+        s.code,
+        seriesTitle(s),
+        s.title,
+        s.title_en,
+        s.description,
+        s.description_en,
+        relatedLinksSearchText(relatedLinksForSeries(s))
+      ].join(" ");
+    }
+
+    function updateItems() {
+      const workItems = works.map(work => ({
+        id: `work-${work.id}`,
+        type: "work",
+        label: "WORK",
+        timestamp: updateTimestampForWork(work),
+        record: work
+      }));
+
+      const seriesItems = seriesRecords.map(series => ({
+        id: `series-${series.id}`,
+        type: "series",
+        label: "SERIES",
+        timestamp: updateTimestampForSeries(series),
+        record: series
+      }));
+
+      return [...workItems, ...seriesItems]
+        .filter(item => item.timestamp)
+        .sort((a, b) => b.timestamp - a.timestamp);
+    }
+
+    function renderUpdates() {
+      const query = searchInput.value.trim().toLowerCase();
+      const items = updateItems()
+        .filter(item => !query || updateSearchText(item).toLowerCase().includes(query))
+        .slice(0, 60);
+
+      if (!items.length) {
+        workList.innerHTML = '<div class="empty">更新情報がありません。</div>';
+        return;
+      }
+
+      workList.innerHTML = items.map(item => {
+        if (item.type === "work") {
+          const w = item.record;
+          const series = getSeriesRecordForWork(w);
+          return `
+            <article class="work" id="updates-work-${escapeAttr(w.id)}">
+              <button class="work-summary" type="button" onclick="toggleUpdateWork('${escapeAttr(w.id)}')">
+                <div class="work-no">${escapeHtml(normalizeWorkNo(w.work_no))}</div>
+                <div class="work-title"><span class="title-scroll"><span class="update-kind-label">[WORK]</span>${workListTitleHtml(w)}</span></div>
+                <div class="work-year">${escapeHtml(formatUpdateDate(item.timestamp))}</div>
+              </button>
+              <div class="work-detail">${workDetailHtml(w)}</div>
+            </article>`;
+        }
+
+        const s = item.record;
+        return `
+          <article class="work" id="updates-series-${escapeAttr(s.id)}">
+            <button class="work-summary" type="button" onclick="toggleUpdateSeries('${escapeAttr(s.id)}')">
+              <div class="work-no">${escapeHtml(normalizeWorkNo(s.series_no))}</div>
+              <div class="work-title"><span class="title-scroll"><span class="update-kind-label">[SERIES]</span>${escapeHtml(seriesTitle(s))}</span></div>
+              <div class="work-year">${escapeHtml(formatUpdateDate(item.timestamp))}</div>
+            </button>
+            <div class="work-detail">${updateSeriesDetailHtml(s)}</div>
+          </article>`;
+      }).join("");
+    }
+
+    function render() {
+      renderUpdates();
+    }
+
+    function safeRender() {
+      try {
+        renderUpdates();
+      } catch (renderError) {
+        console.warn("WSV updates render retry without URL links.", renderError);
+        relatedLinks = [];
+        renderUpdates();
+      }
+    }
+
+    window.toggleUpdateWork = function(id) {
+      const target = document.getElementById("updates-work-" + id);
+      if (target) target.classList.toggle("open");
+    };
+
+    window.toggleUpdateSeries = function(id) {
+      const target = document.getElementById("updates-series-" + id);
+      if (target) target.classList.toggle("open");
+    };
+
+    window.clearFilters = function() {
+      searchInput.value = "";
+      renderUpdates();
+    };
+
     searchInput.addEventListener("input", render);
 
     async function loadPortfolio() {
       try {
-        statusEl.textContent = "公開一覧を読み込み中です。";
+        statusEl.textContent = "更新情報を読み込み中です。";
 
-        const [seriesResult, worksResult] = await Promise.all([
+        const [seriesResult, worksResult, assetsResult] = await Promise.all([
           cloudClient
             .from("wsv_series")
-            .select("id,series_no,code,title,title_en,start_date,is_public,sort_order,created_at,updated_at,content_updated_at")
+            .select("id,series_no,code,title,title_en,start_date,description,description_en,logo_asset_id,is_public,sort_order,created_at,updated_at,content_updated_at")
             .eq("is_public", true)
             .order("series_no", { ascending: true }),
           cloudClient
             .from("wsv_works")
-            .select("id,work_no,title,title_en,series_id,start_date,completed_date,production_status,management_status,technique,is_public,sort_order,created_at,updated_at,content_updated_at")
+            .select("id,work_no,title,title_en,series_id,start_date,completed_date,production_status,management_status,technique,materials,size_h,size_w,size_d,price_amount,price_ask,cost_amount,location,holder_name,description,description_en,logo_asset_id,cover_asset_id,is_public,sort_order,created_at,updated_at,content_updated_at")
             .eq("is_public", true)
-            .order("work_no", { ascending: true })
+            .order("work_no", { ascending: true }),
+          cloudClient
+            .from("wsv_assets")
+            .select("id,work_id,series_id,asset_type,storage_bucket,storage_path,file_name,mime_type,alt_text,caption,sort_order,is_cover,is_public,created_at,updated_at")
+            .eq("is_public", true)
+            .in("asset_type", ["work_logo", "series_logo", "work_image"])
         ]);
 
         if (seriesResult.error) throw seriesResult.error;
         if (worksResult.error) throw worksResult.error;
+        if (assetsResult.error) throw assetsResult.error;
 
         seriesRecords = seriesResult.data || [];
         works = worksResult.data || [];
-        cloudAssets = [];
-        relatedLinks = [];
+        cloudAssets = assetsResult.data || [];
+
+        try {
+          const relatedLinksResult = await cloudClient
+            .from("wsv_related_links")
+            .select("id,target_type,work_id,series_id,title,url,sort_order,is_public,created_at,updated_at")
+            .eq("is_public", true)
+            .order("sort_order", { ascending: true });
+
+          if (relatedLinksResult.error) throw relatedLinksResult.error;
+          relatedLinks = relatedLinksResult.data || [];
+        } catch (relatedError) {
+          console.warn("WSV related URL links could not be loaded.", relatedError);
+          relatedLinks = [];
+        }
 
         statusEl.style.display = "none";
         safeRender();
       } catch (error) {
         console.error(error);
-        statusEl.textContent = "公開一覧を読み込めませんでした。公開設定またはRLSをご確認ください。";
+        statusEl.textContent = "更新情報を読み込めませんでした。公開設定またはRLSをご確認ください。";
       }
     }
 

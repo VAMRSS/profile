@@ -2,12 +2,11 @@
 <html lang="ja" data-theme="light">
 <head>
   <meta charset="utf-8">
-  <link rel="icon" href="./images/favicon.png" type="image/png">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>VAMRSS</title>
-  <meta name="description" content="VAMRSS official portfolio and works database.">
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="icon" href="../images/favicon.png" type="image/png">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>ABOUT | (VAMRSS) WORKSHEET VAULT SYSTEM</title>
   <style>
+
 
     :root {
       --bg: #f8f9f9;
@@ -2128,190 +2127,176 @@
       cursor: pointer;
     }
 
-    .related-link-list {
+  
+
+    .profile-detail-card {
+      border-top: 1px solid var(--line);
+      padding-top: 0;
+    }
+
+    .profile-detail-card .detail-row:first-child {
+      border-top: 0;
+    }
+
+    .profile-value-block {
+      display: grid;
+      gap: 12px;
+    }
+
+    .profile-value-block p {
+      margin: 0;
+    }
+
+    .profile-link {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .profile-muted {
+      color: var(--sub);
+    }
+
+    .social-list {
       display: grid;
       gap: 0;
     }
 
-    .related-link-item {
-      display: block;
-      color: inherit;
-      text-decoration: none;
+    .social-row {
+      display: grid;
+      grid-template-columns: 92px minmax(0, 1fr);
+      gap: 16px;
       line-height: 1.9;
-      word-break: break-all;
     }
 
-    .related-link-item:hover {
-      text-decoration: underline;
-    }
-
-    .related-link-note {
-      margin: 4px 0 0;
-      color: var(--sub);
-      font-size: 11px;
-      line-height: 1.8;
-    }
-
-    .related-link-list {
-      display: grid !important;
+    .profile-value-block {
       gap: 0 !important;
-      line-height: inherit !important;
     }
 
-    .related-link-item {
-      display: block !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      line-height: inherit !important;
-      color: inherit;
-      text-decoration: none;
-      word-break: break-all;
+    .items .item.expanded {
+      border-top: 1px solid var(--line);
     }
 
-    .related-url-row .detail-value {
-      white-space: normal !important;
+    .items .item.expanded > .item-detail.open {
+      padding-top: 0;
     }
 
-    .related-url-row .related-link-list {
-      display: grid !important;
-      gap: 0 !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      line-height: inherit !important;
+    .about-first-row {
+      margin-top: 1.9em;
     }
 
-    .related-url-row .related-link-item {
-      display: block !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      line-height: inherit !important;
-      color: inherit;
-      text-decoration: none;
-      word-break: break-all;
-    }
-
-    .related-url-row .related-link-item:hover {
-      text-decoration: underline;
-    }
-
-    .detail-link-button {
-      appearance: none;
-      border: 0;
-      border-bottom: 1px solid var(--line);
-      background: transparent;
-      color: inherit;
-      font: inherit;
-      padding: 0;
-      margin: 0;
-      text-align: left;
-      cursor: pointer;
-    }
-
-    .detail-link-button:hover {
-      text-decoration: underline;
-    }
-
-    .inline-series-host {
-      grid-column: 1 / -1;
-      margin: 0;
-      padding: 0;
-    }
-
-    .inline-series-host .inline-expanded {
-      margin-left: 1em;
-      margin-top: 0.5em;
-      margin-bottom: 0.8em;
-    }
-
-    .series-work-row {
-      align-items: start !important;
-    }
-
-    .series-work-row .detail-value {
-      white-space: normal !important;
-      overflow: visible !important;
-    }
-
-    .series-work-row .inline-series-link {
-      display: block !important;
-      width: 100%;
-      white-space: normal !important;
-      overflow: visible !important;
-      overflow-wrap: anywhere !important;
-      word-break: normal !important;
-      line-height: 2 !important;
-      padding: 0 !important;
-      margin: 0 !important;
-    }
-
-    .logo-stack {
-      display: grid;
-      gap: 14px;
-      width: 100%;
-    }
-
-    .logo-stack-item {
+    .profile-icon-img {
       display: block;
-      width: 100%;
-      margin: 0;
-      padding: 0;
-    }
-
-    .logo-stack-item img {
-      display: block;
-      width: 100%;
-      max-width: 100%;
+      width: 30%;
+      max-width: 180px;
+      min-width: 72px;
       height: auto;
-      margin: 0;
-      object-fit: contain;
-      object-position: left top;
+      filter: none !important;
+      mix-blend-mode: normal !important;
     }
 
-    .logo-entry-card {
+    .profile-icon-img {
+      width: 50% !important;
+      max-width: none !important;
+      min-width: 0 !important;
+      margin: 1.9em 0 !important;
+      filter: none !important;
+      mix-blend-mode: normal !important;
+    }
+
+    .about-first-row {
+      margin-top: 0 !important;
+    }
+
+    .profile-icon-row {
+      align-items: start !important;
+    }
+
+    .profile-icon-row .detail-value {
+      line-height: 0 !important;
+      white-space: normal !important;
+    }
+
+    .profile-icon-img {
+      width: 50% !important;
+      max-width: none !important;
+      min-width: 0 !important;
+      margin: 0.45em 0 0.45em 0 !important;
+      display: block !important;
+      filter: none !important;
+      mix-blend-mode: normal !important;
+    }
+
+    .profile-icon-img {
+      margin: 2.35em 0 2.35em 0 !important;
+    }
+
+    .social-list {
       display: grid;
-      gap: 8px;
+      gap: 0;
       width: 100%;
     }
 
-    .logo-entry-card-actions {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
+    .social-item {
+      display: grid;
+      grid-template-columns: 92px minmax(0, 1fr);
+      gap: 16px;
+      align-items: baseline;
+      line-height: 1.9;
+      padding: 0;
+      margin: 0;
     }
 
-    .title-series-code {
+    .social-platform {
       color: var(--sub);
+      letter-spacing: 0.04em;
+      white-space: nowrap;
     }
 
-    .detail-grid {
-      gap: 0.55em 0 !important;
-      align-items: start !important;
+    .social-main {
+      display: grid;
+      gap: 0;
+      min-width: 0;
+      line-height: 1.9;
     }
 
-    .detail-row {
-      align-items: start !important;
-      min-height: 0 !important;
+    .social-handle {
+      color: var(--ink);
+      line-height: 1.9;
     }
 
-    .detail-row .detail-key,
-    .detail-row .detail-value {
-      line-height: 1.8 !important;
-      min-height: 0 !important;
+    .social-url {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid var(--line);
+      overflow-wrap: anywhere;
+      word-break: break-all;
+      line-height: 1.9;
     }
 
-    .detail-row .detail-value {
-      white-space: pre-wrap !important;
-      overflow: visible !important;
-      overflow-wrap: anywhere !important;
-      word-break: normal !important;
+    .social-url:hover {
+      text-decoration: underline;
     }
 
-    .detail-row .detail-value button,
-    .detail-row .detail-value a {
-      white-space: normal !important;
-      overflow-wrap: anywhere !important;
-      word-break: normal !important;
-      line-height: 1.8 !important;
+    .social-note {
+      color: var(--sub);
+      line-height: 1.9;
+      margin: 0;
+    }
+
+    @media (max-width: 720px) {
+      .social-item {
+        grid-template-columns: 78px minmax(0, 1fr);
+        gap: 12px;
+      }
+    }
+
+    .social-list {
+      gap: 1.9em !important;
+    }
+
+    .statement-row {
+      margin-bottom: 1.9em !important;
     }
 
     :root {
@@ -2329,55 +2314,6 @@
 
     * {
       font-family: inherit;
-    }
-
-    .logo-stack {
-      gap: 6px !important;
-    }
-
-    .logo-entry-card {
-      gap: 4px !important;
-    }
-
-    .logo-caption,
-    .logo-caption-display {
-      margin-top: 3px !important;
-      color: var(--sub);
-      font-size: 11px;
-      line-height: 1.55;
-      white-space: pre-wrap;
-      overflow-wrap: anywhere;
-    }
-
-    .logo-caption-input {
-      width: 100%;
-      margin-top: 4px;
-      font-size: 12px;
-    }
-
-    .detail-row.logo-detail-row {
-      margin-bottom: 0.35em !important;
-    }
-
-    .detail-row.cover-detail-row {
-      margin-bottom: 0.45em !important;
-    }
-
-    .detail-row.image-detail-row {
-      margin-top: 0.35em !important;
-      margin-bottom: 0.35em !important;
-    }
-
-    .detail-row.image-detail-row .work-image-gallery {
-      gap: 0.85em !important;
-    }
-
-    .work-image-caption {
-      margin-top: 3px !important;
-    }
-
-    .logo-detail-preview {
-      line-height: 1.45 !important;
     }
 
     .detail-grid {
@@ -2791,49 +2727,6 @@
       transform: none !important;
     }
 
-    /* v3.9.28 expanded detail close button */
-    .detail-close-row {
-      margin-top: 1.5em;
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .detail-close-button {
-      color: var(--sub);
-    }
-
-    /* v3.9.28 share and individual page actions */
-    .share-action-row {
-      margin-top: 1.5em;
-      display: flex;
-      justify-content: flex-end;
-      gap: 1.25em;
-      flex-wrap: wrap;
-    }
-
-    .share-action-row .text-button {
-      color: var(--sub);
-    }
-
-    /* v3.9.28 lightweight list and lazy detail loading */
-    .detail-loading {
-      color: var(--sub);
-      font-size: 12px;
-      padding: 4px 0 10px;
-    }
-
-    /* v3.9.28 selected number marker */
-    .work.is-current .work-no,
-    .series-work-row.is-current .detail-key {
-      display: inline-block;
-      width: fit-content;
-      min-width: 0;
-      color: var(--bg) !important;
-      background: var(--ink) !important;
-      padding: 0 0.35em;
-      line-height: 1.55;
-    }
-
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2844,953 +2737,109 @@
     <div class="fixed-copyright-mark">(C) 2026 SHIRASUSALAD</div>
     <div class="fixed-version-mark">v3.9.28</div>
 
-    <section id="worksScreen" class="screen active">
+    <section id="profileScreen" class="screen active">
       <div class="topbar">
         <h1 class="site-title">
           <button class="site-logo" type="button" onclick="toggleTheme()" aria-label="Toggle light and dark theme">
-            <img class="site-logo-img" src="./admin/assets/wsv-logo.svg" alt="(VAMRSS) WSV">
+            <img class="site-logo-img" src="../admin/assets/wsv-logo.svg" alt="(VAMRSS) WSV">
           </button>
         </h1>
         <nav class="text-nav">
-          <a class="text-button" href="./updates/">UPDATES</a>
-          <a class="text-button" href="./profile/">ABOUT</a>
+          <a class="text-button" href="../">HOME</a>
+          <a class="text-button" href="../updates/">UPDATES</a>
         </nav>
       </div>
 
-      <div class="link-list mode-switch" style="margin-bottom: 9px;">
-        <button class="text-button selected" type="button" id="worksModeButton" onclick="setListMode('works')">WORKS</button>
-        <button class="text-button" type="button" id="seriesModeButton" onclick="setListMode('series')">SERIES</button>
-      </div>
-
-      <div class="filter-area" id="worksFilterArea">
-        <div class="link-list bracket-switch" id="techniqueLinks"></div>
-      </div>
-
-      <div class="portfolio-search-line" id="portfolioSearchLine">
-        <button class="text-button" type="button" onclick="toggleStatusPanel()" id="statusPanelText">＋</button>
-        <div class="portfolio-search-wrap" id="inlineSearchWrap">
-          <input id="searchInput" type="search" placeholder="SEARCH">
-        </div>
-        <button class="text-button portfolio-search-reset" type="button" onclick="clearFilters()">RESET</button>
-      </div>
-
-      <div class="collapsible" id="statusPanel">
-        <div class="link-list bracket-switch" id="productionLinks"></div>
-        <div class="link-list bracket-switch" id="managementLinks"></div>
-      </div>
-
       <div class="list-head">
-        <button class="text-button" type="button" onclick="setSort('workNo')">№<span id="sortMarkWorkNo"></span></button>
-        <button class="text-button" type="button" onclick="setSort('title')">TITLE<span id="sortMarkTitle"></span></button>
-        <button class="text-button" type="button" onclick="setSort('year')">DONE<span id="sortMarkYear"></span></button>
+        <span>ABOUT</span>
       </div>
 
-      <div id="status" class="portfolio-note">公開作品を読み込み中です。</div>
-      <div id="workList" class="list"></div>
+      <div class="items" id="profileItems">
+        <article class="item expanded">
+<div class="item-detail open">
+            <div class="profile-detail-card">
+              <div class="detail-row about-first-row profile-icon-row">
+                <div class="detail-key">ICON</div>
+                <div class="detail-value">
+                  <img class="profile-icon-img" src="./assets/profile-icon.svg" alt="SHIRASUSALAD icon">
+                </div>
+              </div>
+
+
+<div class="detail-row">
+                <div class="detail-key">NAME</div>
+                <div class="detail-value">しらすサラダ / SHIRASUSALAD</div>
+              </div>
+
+              <div class="detail-row">
+                <div class="detail-key">BASED</div>
+                <div class="detail-value">Tokyo, Japan</div>
+              </div>
+              <div class="detail-row">
+                <div class="detail-key">SOCIAL</div>
+                <div class="detail-value">
+                  <div class="social-list">
+                    <div class="social-item">
+                      <div class="social-platform">X</div>
+                      <div class="social-main">
+                        <div class="social-handle">@vamrss</div>
+                        <a class="social-url" href="https://x.com/vamrss" target="_blank" rel="noopener noreferrer">https://x.com/vamrss</a>
+                      </div>
+                    </div>
+                    <div class="social-item">
+                      <div class="social-platform">Instagram</div>
+                      <div class="social-main">
+                        <div class="social-handle">@shirasusalad</div>
+                        <a class="social-url" href="https://www.instagram.com/shirasusalad/" target="_blank" rel="noopener noreferrer">https://www.instagram.com/shirasusalad/</a>
+                      </div>
+                    </div>
+                    <div class="social-item">
+                      <div class="social-platform">YouTube</div>
+                      <div class="social-main">
+                        <div class="social-handle">@shirasusalad</div>
+                        <a class="social-url" href="https://www.youtube.com/@shirasusalad" target="_blank" rel="noopener noreferrer">https://www.youtube.com/@shirasusalad</a>
+                      </div>
+                    </div>
+                    <div class="social-item">
+                      <div class="social-platform">note</div>
+                      <div class="social-main">
+                        <div class="social-handle">VAMRSS</div>
+                        <a class="social-url" href="https://note.com/vamrss" target="_blank" rel="noopener noreferrer">https://note.com/vamrss</a>
+                      </div>
+                    </div>
+                    <div class="social-item">
+                      <div class="social-platform">Blog</div>
+                      <div class="social-main">
+                        <div class="social-handle">Archive</div>
+                        <a class="social-url" href="https://vamrss.hatenablog.jp" target="_blank" rel="noopener noreferrer">https://vamrss.hatenablog.jp</a>
+                        <p class="social-note">過去記事のアーカイブです。現在、記事・テキストはnoteへ移行中です。</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+<div class="detail-row statement-row">
+                <div class="detail-key">STATEMENT</div>
+                <div class="detail-value">週末を中心にものづくりを行っています。自分にとっての「欲しい」を出発点に、部屋を彩るちょっとしたアクセントになるような雑貨やアート作品、電子工作、グラフィックなどを制作しています。
+制作物は種々雑多ですが、その一つひとつを作品やプロダクトとして扱い、VAMRSSという名称のもとで記録・公開しています。ものを作ること、記録すること、見せることを行き来しながら、個人的な制作活動を開かれたデータベースとして残していくことを試みています。</div>
+              </div>
+
+              <div class="detail-row">
+                <div class="detail-key">EXHIBITION</div>
+                <div class="detail-value">2021　グループ展《Mining Point》 Gallery Camellia 東京・銀座
+2022　出展《シラスネオン》 Maker Faire Tokyo 2022 東京・有明
+2023　初個展《VAMRSS展》 Gallery Camellia 東京・銀座
+2026　個展《Serendipity》 MONKEY GALLERY 東京・代官山</div>
+              </div>
+
+            </div>
+          </div>
+        </article>
+      </div>
     </section>
   </main>
 
   <script>
-    const SUPABASE_URL = "https://xovbmsyjhtlxldtjbvvm.supabase.co";
-    const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_gP9cTUqzNytHEXRUY9-dug__quOy4fv";
-    const WSV_ASSET_BUCKET = "wsv-assets";
-    const cloudClient = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
-
-    let works = [];
-    let seriesRecords = [];
-    let cloudAssets = [];
-    let relatedLinks = [];
-    let activeListMode = "works";
-    let activeTechnique = "ALL";
-    let activeProduction = "ALL";
-    let activeManagement = "ALL";
-    let sortKey = "workNo";
-    let sortDirection = "asc";
-
-    const PRODUCTION_STATUSES = ["制作中", "完成", "制作終了"];
-    const MANAGEMENT_STATUSES = ["保管中", "売却済", "譲渡済", "貸出中", "処分済"];
-
-    const workList = document.getElementById("workList");
-    const searchInput = document.getElementById("searchInput");
-    const statusEl = document.getElementById("status");
-
-    function escapeHtml(value) {
-      return String(value ?? "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-    }
-
-    function escapeAttr(value) {
-      return escapeHtml(value).replace(/`/g, "&#096;");
-    }
-
-    
-
-    function normalizeUrl(url = "") {
-      const raw = String(url || "").trim();
-      if (!raw) return "";
-      if (/^https?:\/\//i.test(raw)) return raw;
-      return "https://" + raw;
-    }
-
-    function normalizeRelatedLinks(links = []) {
-      if (!Array.isArray(links)) return [];
-      return links
-        .map((link, index) => {
-          const url = normalizeUrl(link.url || "");
-          if (!url) return null;
-          return {
-            id: link.id || "",
-            title: String(link.title || url).trim(),
-            url,
-            sortOrder: Number.isFinite(Number(link.sort_order ?? link.sortOrder)) ? Number(link.sort_order ?? link.sortOrder) : index,
-            isPublic: Boolean(link.is_public ?? link.isPublic)
-          };
-        })
-        .filter(Boolean)
-        .sort((a, b) => (a.sortOrder || 0) - (b.sortOrder || 0));
-    }
-
-    function relatedLinksForWork(work = {}) {
-      return normalizeRelatedLinks(relatedLinks.filter(link => link.work_id === work.id));
-    }
-
-    function relatedLinksForSeries(series = {}) {
-      return normalizeRelatedLinks(relatedLinks.filter(link => link.series_id === series.id));
-    }
-
-    function relatedLinksSearchText(links = []) {
-      return normalizeRelatedLinks(links).map(link => `${link.title} ${link.url}`).join(" ");
-    }
-
-    function relatedLinksDetailRowHtml(links = []) {
-      const clean = normalizeRelatedLinks(links);
-      if (!clean.length) return "";
-      const items = clean
-        .map(link => `<a class="related-link-item" href="${escapeAttr(link.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.title)} / ${escapeHtml(link.url)}</a>`)
-        .join("");
-      return `<div class="detail-row related-url-row"><div class="detail-key">URL</div><div class="detail-value"><div class="related-link-list">${items}</div></div></div>`;
-    }
-
-function normalizeWorkNo(value) {
-      const digits = String(value ?? "").replace(/\D/g, "").slice(0, 4);
-      return digits ? digits.padStart(4, "0") : "";
-    }
-
-    function normalizeStatuses(work = {}) {
-      return {
-        productionStatus: work.production_status || work.productionStatus || "",
-        managementStatus: work.management_status || work.managementStatus || ""
-      };
-    }
-
-    function cloudAssetPublicUrl(path) {
-      if (!path) return "";
-      const { data } = cloudClient.storage.from(WSV_ASSET_BUCKET).getPublicUrl(path);
-      return data && data.publicUrl ? data.publicUrl : "";
-    }
-
-    function formatMoney(value) {
-      if (value === null || value === undefined || value === "") return "";
-      const n = Number(value);
-      if (!Number.isFinite(n)) return String(value);
-      return "¥" + Math.round(n).toLocaleString("ja-JP");
-    }
-
-    function formatDimensions(work = {}) {
-      const h = work.size_h ?? work.sizeH ?? "";
-      const w = work.size_w ?? work.sizeW ?? "";
-      const d = work.size_d ?? work.sizeD ?? "";
-      const parts = [];
-      if (h !== "" && h !== null) parts.push("H" + h);
-      if (w !== "" && w !== null) parts.push("W" + w);
-      if (d !== "" && d !== null) parts.push("D" + d);
-      return parts.length ? parts.join(" × ") + " mm" : "";
-    }
-
-    function workTitle(work = {}) {
-      return work.title || work.title_en || "Untitled";
-    }
-
-    function workListTitleHtml(work = {}) {
-      const title = escapeHtml(workTitle(work));
-      const series = seriesRecords.find(item => item.id === work.series_id);
-      const code = series && series.code ? String(series.code).trim() : "";
-      if (!code) return title;
-      return `${title}<span class="title-series-code">（${escapeHtml(code)}）</span>`;
-    }
-
-    function workDescription(work = {}) {
-      return work.description || "";
-    }
-
-    function normalizeProductionDate(work = {}) {
-      return work.start_date || "";
-    }
-
-    function seriesTitle(series = {}) {
-      return series.title || series.title_en || series.code || normalizeWorkNo(series.series_no) || "";
-    }
-
-    function seriesLabel(series = {}) {
-      if (!series) return "";
-      const code = series.code ? series.code + " / " : "";
-      return code + seriesTitle(series);
-    }
-
-
-    function seriesLabelHtml(series, hostId = "") {
-      const label = seriesLabel(series);
-      if (!series || !series.id || !label) return escapeHtml(label || "");
-      const safeHostId = hostId || series.id;
-      return `<button class="detail-link-button" type="button" onclick="toggleInlineSeries('${escapeAttr(series.id)}', '${escapeAttr(safeHostId)}')">${escapeHtml(label)}</button>`;
-    }
-
-    function seriesDetailHtml(series = {}) {
-      const no = normalizeWorkNo(series.series_no);
-      const relatedWorks = works
-        .filter(w => w.series_id === series.id)
-        .sort(compareWorks);
-
-      return `
-        <div class="inline-expanded">
-          <div class="detail-grid">
-            ${logoDetailRowHtml("series", series)}
-            ${row("№", no)}
-            ${row("Code", series.code)}
-            ${row("Title", series.title)}
-            ${row("T_EN", series.title_en)}
-            ${row("Start", series.start_date)}
-            ${row("Works", String(relatedWorks.length))}
-            ${row("Description", series.description)}
-            ${row("D_EN", series.description_en)}
-            ${additionalLogoDetailRowHtml("series", series)}
-            ${relatedLinksDetailRowHtml(relatedLinksForSeries(series))}
-          </div>
-        </div>`;
-    }
-
-    window.toggleInlineSeries = async function(seriesId, hostId = "") {
-      const safeHostId = hostId || seriesId;
-      const target = document.getElementById(`inline-series-${safeHostId}-${seriesId}`);
-      if (!target) return;
-      if (target.dataset.open === "1") {
-        target.innerHTML = "";
-        target.dataset.open = "";
-        requestAnimationFrame(() => scrollItemToTop(markerRow));
-        return;
-      }
-      target.dataset.open = "1";
-      target.innerHTML = '<div class="detail-loading">Loading detail...</div>';
-      try {
-        const series = await loadPublicSeriesDetail(seriesId);
-        target.innerHTML = seriesDetailHtml(series);
-      } catch (error) {
-        console.error(error);
-        target.innerHTML = '<div class="detail-loading">Detail could not be loaded.</div>';
-      }
-    };
-
-
-    function getSeriesRecordForWork(work = {}) {
-      return seriesRecords.find(series => series.id === work.series_id) || null;
-    }
-
-    function getSeriesRecordByTitle(title) {
-      return seriesRecords.find(series => seriesTitle(series) === title || seriesLabel(series) === title) || null;
-    }
-
-    function findLogoAssets(kind, record = {}) {
-      if (!record || !record.id) return [];
-      const assetType = kind === "series" ? "series_logo" : "work_logo";
-      const assets = cloudAssets
-        .filter(asset => {
-          if (asset.asset_type !== assetType) return false;
-          return kind === "series" ? asset.series_id === record.id : asset.work_id === record.id;
-        })
-        .sort((a, b) => {
-          const ao = Number.isFinite(Number(a.sort_order)) ? Number(a.sort_order) : 0;
-          const bo = Number.isFinite(Number(b.sort_order)) ? Number(b.sort_order) : 0;
-          if (ao !== bo) return ao - bo;
-          return String(a.created_at || "").localeCompare(String(b.created_at || ""));
-        });
-
-      const id = record.logo_asset_id || record.logoAssetId || "";
-      if (!id) return assets;
-      const index = assets.findIndex(asset => asset.id === id);
-      if (index <= 0) return assets;
-      const primary = assets[index];
-      return [primary, ...assets.slice(0, index), ...assets.slice(index + 1)];
-    }
-
-    function findLogoAsset(kind, record = {}) {
-      return findLogoAssets(kind, record)[0] || null;
-    }
-
-    function findWorkImageAssets(work = {}) {
-      if (!work || !work.id) return [];
-      return cloudAssets
-        .filter(asset => asset.work_id === work.id && asset.asset_type === "work_image")
-        .sort((a, b) => {
-          if (Boolean(a.is_cover) !== Boolean(b.is_cover)) return a.is_cover ? -1 : 1;
-          return Number(a.sort_order || 0) - Number(b.sort_order || 0) || String(a.created_at || "").localeCompare(String(b.created_at || ""));
-        });
-    }
-
-    function findCoverImageAsset(work = {}) {
-      if (!work) return null;
-      const coverId = work.cover_asset_id || "";
-      if (coverId) {
-        const byId = cloudAssets.find(asset => asset.id === coverId && asset.asset_type === "work_image");
-        if (byId) return byId;
-      }
-      return findWorkImageAssets(work).find(asset => asset.is_cover) || findWorkImageAssets(work)[0] || null;
-    }
-
-    function coverImageDetailRowHtml(work = {}) {
-      const asset = findCoverImageAsset(work);
-      if (!asset || !asset.storage_path) return "";
-      const url = cloudAssetPublicUrl(asset.storage_path);
-      if (!url) return "";
-      return `<div class="detail-row cover-detail-row media-compact-row"><div class="detail-value"><img class="cover-detail-image" src="${escapeAttr(url)}" alt="${escapeAttr(asset.alt_text || workTitle(work))}"></div></div>`;
-    }
-
-    function logoAssetMarkup(kind, asset, showCaption = true) {
-      if (!asset || !asset.storage_path) return "";
-      const url = cloudAssetPublicUrl(asset.storage_path);
-      if (!url) return "";
-      const caption = showCaption ? escapeHtml(asset.caption || "") : "";
-      return `<div class="logo-stack-item"><img src="${escapeAttr(url)}" alt="${escapeAttr(kind === "series" ? "Series logo" : "Work logo")}">${caption ? `<div class="logo-caption-display">${caption}</div>` : ""}</div>`;
-    }
-
-    function logoDetailRowHtml(kind, record = {}) {
-      const assets = findLogoAssets(kind, record).filter(asset => asset && asset.storage_path && cloudAssetPublicUrl(asset.storage_path));
-      const primary = assets[0] || null;
-      if (!primary) return "";
-      return `<div class="detail-row logo-detail-row media-compact-row"><div class="detail-key">LOGO</div><div class="detail-value"><div class="logo-detail-preview"><div class="logo-stack">${logoAssetMarkup(kind, primary, false)}</div></div></div></div>`;
-    }
-
-    function additionalLogoDetailRowHtml(kind, record = {}) {
-      const assets = findLogoAssets(kind, record)
-        .filter(asset => asset && asset.storage_path && cloudAssetPublicUrl(asset.storage_path))
-        .slice(1);
-      if (!assets.length) return "";
-      return `<div class="detail-row logo-detail-row additional-logo-detail-row media-compact-row"><div class="detail-key">LOGO</div><div class="detail-value"><div class="logo-detail-preview"><div class="logo-stack">${assets.map(asset => logoAssetMarkup(kind, asset, true)).join("")}</div></div></div></div>`;
-    }
-
-    function workImagesDetailRowHtml(work = {}) {
-      const cover = findCoverImageAsset(work);
-      const images = findWorkImageAssets(work).filter(asset => !cover || asset.id !== cover.id);
-      if (!images.length) return "";
-      const items = images.map(asset => {
-        const url = cloudAssetPublicUrl(asset.storage_path);
-        if (!url) return "";
-        const caption = escapeHtml(asset.caption || "");
-        return `<div class="work-image-card"><img src="${escapeAttr(url)}" alt="${escapeAttr(asset.alt_text || asset.caption || workTitle(work))}">${caption ? `<div class="work-image-caption">${caption}</div>` : ""}</div>`;
-      }).join("");
-      return `<div class="detail-row image-detail-row media-compact-row"><div class="detail-value"><div class="work-image-gallery">${items}</div></div></div>`;
-    }
-
-    function hasDisplayValue(value) {
-      if (value === null || value === undefined) return false;
-      if (Array.isArray(value)) return value.length > 0;
-      return String(value).trim() !== "";
-    }
-
-    function row(key, value) {
-      if (!hasDisplayValue(value)) return "";
-      return `<div class="detail-row"><div class="detail-key">${escapeHtml(key)}</div><div class="detail-value">${escapeHtml(value)}</div></div>`;
-    }
-
-    function seriesLinkHtml(seriesTitleText) {
-      return escapeHtml(seriesTitleText || "");
-    }
-
-    function workDetailHtml(work = {}) {
-      const statuses = normalizeStatuses(work);
-      const workNo = normalizeWorkNo(work.work_no);
-      const series = getSeriesRecordForWork(work);
-      return `
-              <div class="detail-grid">
-                ${coverImageDetailRowHtml(work)}
-                ${logoDetailRowHtml("work", work)}
-                ${row("№", workNo)}
-                ${row("Title", work.title)}
-                ${row("T_EN", work.title_en)}
-                ${hasDisplayValue(seriesLabelHtml(series, work.id)) ? `<div class="detail-row">
-                  <div class="detail-key">Series</div>
-                  <div class="detail-value">${seriesLabelHtml(series, work.id)}</div>
-                </div>` : ""}
-                ${series && series.id ? `<div class="inline-series-host" id="inline-series-${escapeAttr(work.id)}-${escapeAttr(series.id)}"></div>` : ""}
-                ${row("Start", normalizeProductionDate(work))}
-                ${row("Completed", work.completed_date)}
-                ${row("Production", statuses.productionStatus)}
-                ${row("Management", statuses.managementStatus)}
-                ${row("Location", work.location)}
-                ${row("Owner", work.holder_name)}
-                ${row("Technique", work.technique)}
-                ${row("Materials", work.materials)}
-                ${row("Size", formatDimensions(work))}
-                ${row("Description", workDescription(work))}
-                ${row("D_EN", work.description_en)}
-                ${additionalLogoDetailRowHtml("work", work)}
-                ${relatedLinksDetailRowHtml(relatedLinksForWork(work))}
-                ${workImagesDetailRowHtml(work)}
-              </div>`;
-    }
-
-    function compareWorks(a, b) {
-      let av = "";
-      let bv = "";
-      if (sortKey === "workNo") {
-        av = normalizeWorkNo(a.work_no);
-        bv = normalizeWorkNo(b.work_no);
-      } else if (sortKey === "title") {
-        av = workTitle(a);
-        bv = workTitle(b);
-      } else if (sortKey === "year") {
-        av = String(a.completed_date || a.start_date || "");
-        bv = String(b.completed_date || b.start_date || "");
-      }
-      const result = av.localeCompare(bv, "ja", { numeric: true });
-      return sortDirection === "asc" ? result : -result;
-    }
-
-    function compareSeries(a, b) {
-      let av = "";
-      let bv = "";
-      if (sortKey === "workNo") {
-        av = normalizeWorkNo(a.series_no);
-        bv = normalizeWorkNo(b.series_no);
-      } else if (sortKey === "title") {
-        av = seriesTitle(a);
-        bv = seriesTitle(b);
-      } else if (sortKey === "year") {
-        av = String(a.start_date || "");
-        bv = String(b.start_date || "");
-      }
-      const result = av.localeCompare(bv, "ja", { numeric: true });
-      return sortDirection === "asc" ? result : -result;
-    }
-
-    function renderLinkButtons(id, options, active, handler) {
-      const wrap = document.getElementById(id);
-      if (!wrap) return;
-      wrap.innerHTML = [
-        `<button class="text-button ${active === "ALL" ? "selected" : ""}" type="button" data-value="ALL">ALL</button>`,
-        ...options.map(option => `<button class="text-button ${active === option ? "selected" : ""}" type="button" data-value="${escapeAttr(option)}">${escapeHtml(option)}</button>`)
-      ].join("");
-      wrap.querySelectorAll("button").forEach(button => {
-        button.addEventListener("click", () => handler(button.dataset.value || "ALL"));
-      });
-    }
-
-
-    function techniqueSortByCount(a, b) {
-      const labelA = String(a || "").trim();
-      const labelB = String(b || "").trim();
-      const countA = works.filter(work => String(work.technique || "").trim() === labelA).length;
-      const countB = works.filter(work => String(work.technique || "").trim() === labelB).length;
-      if (countB !== countA) return countB - countA;
-      return labelA.localeCompare(labelB, "ja", { numeric: true });
-    }
-
-    function renderFilters() {
-      const techniques = Array.from(new Set(works.map(w => String(w.technique || "").trim()).filter(Boolean))).sort(techniqueSortByCount);
-      renderLinkButtons("techniqueLinks", techniques, activeTechnique, value => {
-        activeTechnique = value;
-        render();
-      });
-      renderLinkButtons("productionLinks", PRODUCTION_STATUSES, activeProduction, value => {
-        activeProduction = value;
-        render();
-      });
-      renderLinkButtons("managementLinks", MANAGEMENT_STATUSES, activeManagement, value => {
-        activeManagement = value;
-        render();
-      });
-    }
-
-    function renderSortMarks() {
-      const map = {
-        workNo: document.getElementById("sortMarkWorkNo"),
-        title: document.getElementById("sortMarkTitle"),
-        year: document.getElementById("sortMarkYear")
-      };
-      Object.entries(map).forEach(([key, el]) => {
-        if (!el) return;
-        el.className = "sort-mark " + (sortDirection === "desc" ? "desc" : "");
-        el.textContent = sortKey === key ? (sortDirection === "desc" ? "↗" : "↘") : "";
-      });
-    }
-
-    function filteredWorks() {
-      const query = searchInput.value.trim().toLowerCase();
-      return works
-        .filter(w => activeTechnique === "ALL" || String(w.technique || "") === activeTechnique)
-        .filter(w => {
-          const statuses = normalizeStatuses(w);
-          return activeProduction === "ALL" || statuses.productionStatus === activeProduction;
-        })
-        .filter(w => {
-          const statuses = normalizeStatuses(w);
-          return activeManagement === "ALL" || statuses.managementStatus === activeManagement;
-        })
-        .filter(w => {
-          if (!query) return true;
-          const statuses = normalizeStatuses(w);
-          const series = getSeriesRecordForWork(w);
-          return [
-            normalizeWorkNo(w.work_no),
-            w.title,
-            w.title_en,
-            w.completed_date,
-            w.start_date,
-            seriesLabel(series),
-            statuses.productionStatus,
-            statuses.managementStatus,
-            w.technique
-          ].some(value => String(value || "").toLowerCase().includes(query));
-        })
-        .sort(compareWorks);
-    }
-
-    function siteBaseUrl() {
-      const path = location.pathname || "/";
-      const lower = path.toLowerCase();
-      let basePath = path;
-      ["/work/", "/series/", "/updates/", "/profile/", "/admin/", "/portfolio/"].forEach(segment => {
-        const index = lower.indexOf(segment);
-        if (index >= 0) basePath = path.slice(0, index + 1);
-      });
-      return location.origin + basePath;
-    }
-
-    function detailUrl(type, no) {
-      const cleanNo = normalizeWorkNo(no);
-      const folder = type === "series" ? "series" : "work";
-      return `${siteBaseUrl()}${folder}/?no=${encodeURIComponent(cleanNo)}`;
-    }
-
-    async function shareDetail(type, no, title) {
-      const url = detailUrl(type, no);
-      const shareTitle = title ? `VAMRSS / ${title}` : "VAMRSS";
-      try {
-        if (navigator.share) {
-          await navigator.share({ title: shareTitle, text: shareTitle, url });
-          return;
-        }
-      } catch (error) {
-        if (error && error.name === "AbortError") return;
-      }
-      try {
-        await navigator.clipboard.writeText(url);
-        const status = document.getElementById("status");
-        if (status) { status.style.display = "block"; status.textContent = "Share URL copied."; }
-      } catch (error) {
-        window.prompt("Copy share URL", url);
-      }
-    }
-
-    function openDetailPage(type, no) {
-      const url = detailUrl(type, no);
-      const opened = window.open(url, "_blank");
-      if (opened) {
-        opened.opener = null;
-        return;
-      }
-      const status = document.getElementById("status");
-      if (status) { status.style.display = "block"; status.textContent = "Open page was blocked. Please allow pop-ups for this site."; }
-    }
-
-    function markCurrentItem(element) {
-      document.querySelectorAll(".work.is-current, .series-work-row.is-current").forEach(item => {
-        item.classList.remove("is-current");
-      });
-      if (element) element.classList.add("is-current");
-    }
-
-    function scrollItemToTop(element) {
-      if (!element) return;
-      const offset = 16;
-      const top = element.getBoundingClientRect().top + window.pageYOffset - offset;
-      window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
-    }
-
-    function replaceById(list, item) {
-      const index = list.findIndex(existing => existing.id === item.id);
-      if (index >= 0) list[index] = { ...list[index], ...item };
-      else list.push(item);
-    }
-
-    function replaceAssetsFor(type, id, assets) {
-      cloudAssets = cloudAssets.filter(asset => {
-        if (type === "work") return asset.work_id !== id;
-        return asset.series_id !== id;
-      });
-      cloudAssets.push(...(assets || []));
-    }
-
-    function replaceLinksFor(type, id, links) {
-      relatedLinks = relatedLinks.filter(link => {
-        if (type === "work") return link.work_id !== id;
-        return link.series_id !== id;
-      });
-      relatedLinks.push(...(links || []));
-    }
-
-    async function loadPublicWorkDetail(id) {
-      const current = works.find(work => work.id === id);
-      if (current && current._detailLoaded) return current;
-
-      const [workResult, assetResult] = await Promise.all([
-        cloudClient
-          .from("wsv_works")
-          .select("id,work_no,title,title_en,series_id,start_date,completed_date,production_status,management_status,technique,materials,size_h,size_w,size_d,location,holder_name,description,description_en,logo_asset_id,cover_asset_id,is_public,sort_order,created_at,updated_at,content_updated_at")
-          .eq("id", id)
-          .eq("is_public", true)
-          .maybeSingle(),
-        cloudClient
-          .from("wsv_assets")
-          .select("id,work_id,series_id,asset_type,storage_bucket,storage_path,file_name,mime_type,alt_text,caption,sort_order,is_cover,is_public,created_at,updated_at")
-          .eq("work_id", id)
-          .eq("is_public", true)
-          .in("asset_type", ["work_logo", "work_image"])
-          .order("sort_order", { ascending: true })
-      ]);
-
-      if (workResult.error) throw workResult.error;
-      if (assetResult.error) throw assetResult.error;
-      if (!workResult.data) throw new Error("WORK_NOT_FOUND");
-
-      let links = [];
-      try {
-        const linkResult = await cloudClient
-          .from("wsv_related_links")
-          .select("id,target_type,work_id,series_id,title,url,sort_order,is_public,created_at,updated_at")
-          .eq("target_type", "work")
-          .eq("work_id", id)
-          .eq("is_public", true)
-          .order("sort_order", { ascending: true });
-        if (linkResult.error) throw linkResult.error;
-        links = linkResult.data || [];
-      } catch (error) {
-        console.warn("WSV work URL links could not be loaded.", error);
-        links = [];
-      }
-
-      const fullWork = { ...(current || {}), ...workResult.data, _detailLoaded: true };
-      replaceById(works, fullWork);
-      replaceAssetsFor("work", id, assetResult.data || []);
-      replaceLinksFor("work", id, links);
-      return fullWork;
-    }
-
-    async function loadPublicSeriesDetail(id) {
-      const current = seriesRecords.find(series => series.id === id);
-      if (current && current._detailLoaded) return current;
-
-      const [seriesResult, assetResult] = await Promise.all([
-        cloudClient
-          .from("wsv_series")
-          .select("id,series_no,code,title,title_en,start_date,description,description_en,logo_asset_id,is_public,sort_order,created_at,updated_at,content_updated_at")
-          .eq("id", id)
-          .eq("is_public", true)
-          .maybeSingle(),
-        cloudClient
-          .from("wsv_assets")
-          .select("id,work_id,series_id,asset_type,storage_bucket,storage_path,file_name,mime_type,alt_text,caption,sort_order,is_cover,is_public,created_at,updated_at")
-          .eq("series_id", id)
-          .eq("is_public", true)
-          .eq("asset_type", "series_logo")
-          .order("sort_order", { ascending: true })
-      ]);
-
-      if (seriesResult.error) throw seriesResult.error;
-      if (assetResult.error) throw assetResult.error;
-      if (!seriesResult.data) throw new Error("SERIES_NOT_FOUND");
-
-      let links = [];
-      try {
-        const linkResult = await cloudClient
-          .from("wsv_related_links")
-          .select("id,target_type,work_id,series_id,title,url,sort_order,is_public,created_at,updated_at")
-          .eq("target_type", "series")
-          .eq("series_id", id)
-          .eq("is_public", true)
-          .order("sort_order", { ascending: true });
-        if (linkResult.error) throw linkResult.error;
-        links = linkResult.data || [];
-      } catch (error) {
-        console.warn("WSV series URL links could not be loaded.", error);
-        links = [];
-      }
-
-      const fullSeries = { ...(current || {}), ...seriesResult.data, _detailLoaded: true };
-      replaceById(seriesRecords, fullSeries);
-      replaceAssetsFor("series", id, assetResult.data || []);
-      replaceLinksFor("series", id, links);
-      return fullSeries;
-    }
-
-    function workDetailContentHtml(work) {
-      const no = normalizeWorkNo(work.work_no);
-      return `${workDetailHtml(work)}
-              <div class="share-action-row">
-                <button class="text-button" type="button" onclick="openDetailPage('work', '${escapeAttr(no)}')">SHARE</button>
-                <button class="text-button detail-close-button" type="button" onclick="toggleWork('${escapeAttr(work.id)}')">CLOSE</button>
-              </div>`;
-    }
-
-    function seriesDetailContentHtml(series) {
-      const no = normalizeWorkNo(series.series_no);
-      const relatedWorks = works
-        .filter(work => work.series_id === series.id)
-        .sort(compareWorks);
-      return `
-              <div class="detail-grid">
-                ${logoDetailRowHtml("series", series)}
-                ${row("№", no)}
-                ${row("Code", series.code)}
-                ${row("Title", series.title)}
-                ${row("T_EN", series.title_en)}
-                ${row("Start", series.start_date)}
-                ${row("Works", String(relatedWorks.length))}
-                ${row("Description", series.description)}
-                ${row("D_EN", series.description_en)}
-                ${additionalLogoDetailRowHtml("series", series)}
-                ${relatedLinksDetailRowHtml(relatedLinksForSeries(series))}
-              </div>
-              <div class="share-action-row">
-                <button class="text-button" type="button" onclick="openDetailPage('series', '${escapeAttr(no)}')">SHARE</button>
-                <button class="text-button detail-close-button" type="button" onclick="toggleSeries('${escapeAttr(series.id)}')">CLOSE</button>
-              </div>
-              ${relatedWorks.length ? `
-                <div class="detail-grid">
-                  ${relatedWorks.map(work => `
-                    <div class="detail-row series-work-row">
-                      <div class="detail-key">${escapeHtml(normalizeWorkNo(work.work_no))}</div>
-                      <div class="detail-value"><button class="inline-series-link" type="button" onclick="toggleNestedWork('series-${escapeAttr(series.id)}', '${escapeAttr(work.id)}')">${escapeHtml(workTitle(work))}</button></div>
-                    </div>
-                    <div id="series-${escapeAttr(series.id)}-work-${escapeAttr(work.id)}"></div>
-                  `).join("")}
-                </div>
-              ` : ""}`;
-    }
-
-    function renderWorksList() {
-      renderFilters();
-      renderSortMarks();
-      const filtered = filteredWorks();
-      if (!filtered.length) {
-        workList.innerHTML = '<div class="empty">公開作品がありません。</div>';
-        return;
-      }
-
-      workList.innerHTML = filtered.map(w => {
-        const workNo = normalizeWorkNo(w.work_no);
-        return `
-          <article class="work" id="work-${escapeAttr(w.id)}">
-            <button class="work-summary" type="button" onclick="toggleWork('${escapeAttr(w.id)}')">
-              <div class="work-no">${escapeHtml(workNo)}</div>
-              <div class="work-title"><span class="title-scroll">${workListTitleHtml(w)}</span></div>
-              <div class="work-year">${escapeHtml(w.completed_date || "")}</div>
-            </button>
-            <div class="work-detail" id="work-detail-${escapeAttr(w.id)}" data-loaded="">
-              <div class="detail-loading">Detail will load when opened.</div>
-            </div>
-          </article>
-        `;
-      }).join("");
-    }
-
-    function renderSeriesList() {
-      renderFilters();
-      renderSortMarks();
-      const query = searchInput.value.trim().toLowerCase();
-      const filtered = seriesRecords
-        .filter(s => {
-          if (!query) return true;
-          return [
-            normalizeWorkNo(s.series_no),
-            s.code,
-            s.title,
-            s.title_en,
-            s.start_date
-          ].some(value => String(value || "").toLowerCase().includes(query));
-        })
-        .sort(compareSeries);
-
-      if (!filtered.length) {
-        workList.innerHTML = '<div class="empty">公開シリーズがありません。</div>';
-        return;
-      }
-
-      workList.innerHTML = filtered.map(s => {
-        const no = normalizeWorkNo(s.series_no);
-        const relatedWorks = works
-          .filter(w => w.series_id === s.id)
-          .sort(compareWorks);
-
-        return `
-          <article class="work" id="series-${escapeAttr(s.id)}">
-            <button class="work-summary" type="button" onclick="toggleSeries('${escapeAttr(s.id)}')">
-              <div class="work-no">${escapeHtml(no)}</div>
-              <div class="work-title"><span class="title-scroll">${escapeHtml(s.code ? s.code + " / " : "")}${escapeHtml(seriesTitle(s))}</span></div>
-              <div class="work-year">${escapeHtml(s.start_date || "")}</div>
-            </button>
-            <div class="work-detail" id="series-detail-${escapeAttr(s.id)}" data-loaded="">
-              <div class="detail-loading">Detail will load when opened.</div>
-            </div>
-          </article>
-        `;
-      }).join("");
-    }
-
-    function render() {
-      const isSeries = activeListMode === "series";
-      document.getElementById("worksModeButton").classList.toggle("selected", !isSeries);
-      document.getElementById("seriesModeButton").classList.toggle("selected", isSeries);
-      const navWorksButton = document.getElementById("navWorksButton");
-      const navSeriesButton = document.getElementById("navSeriesButton");
-      if (navWorksButton) navWorksButton.classList.toggle("selected", !isSeries);
-      if (navSeriesButton) navSeriesButton.classList.toggle("selected", isSeries);
-      document.getElementById("worksFilterArea").style.display = isSeries ? "none" : "grid";
-      const headerButtons = document.querySelectorAll(".list-head .text-button");
-      if (headerButtons[2]) headerButtons[2].firstChild.nodeValue = isSeries ? "START" : "DONE";
-      const productionLinks = document.getElementById("productionLinks");
-      const managementLinks = document.getElementById("managementLinks");
-      if (productionLinks) productionLinks.style.display = isSeries ? "none" : "flex";
-      if (managementLinks) managementLinks.style.display = isSeries ? "none" : "flex";
-      if (isSeries) renderSeriesList();
-      else renderWorksList();
-    }
-
-    function safeRender() {
-      try {
-        render();
-      } catch (renderError) {
-        console.warn("WSV portfolio render retry without URL links.", renderError);
-        relatedLinks = [];
-        render();
-      }
-    }
-
-    window.toggleWork = async function(id) {
-      const article = document.getElementById("work-" + id);
-      const detail = document.getElementById("work-detail-" + id);
-      if (!article || !detail) return;
-      markCurrentItem(article);
-      if (article.classList.contains("open")) {
-        article.classList.remove("open");
-        requestAnimationFrame(() => scrollItemToTop(article));
-        return;
-      }
-      article.classList.add("open");
-      if (detail.dataset.loaded === "1") return;
-      detail.innerHTML = '<div class="detail-loading">Loading detail...</div>';
-      try {
-        const work = await loadPublicWorkDetail(id);
-        detail.dataset.loaded = "1";
-        detail.innerHTML = workDetailContentHtml(work);
-      } catch (error) {
-        console.error(error);
-        detail.innerHTML = '<div class="detail-loading">Detail could not be loaded.</div>';
-      }
-    };
-
-    window.toggleSeries = async function(id) {
-      const article = document.getElementById("series-" + id);
-      const detail = document.getElementById("series-detail-" + id);
-      if (!article || !detail) return;
-      markCurrentItem(article);
-      if (article.classList.contains("open")) {
-        article.classList.remove("open");
-        requestAnimationFrame(() => scrollItemToTop(article));
-        return;
-      }
-      article.classList.add("open");
-      if (detail.dataset.loaded === "1") return;
-      detail.innerHTML = '<div class="detail-loading">Loading detail...</div>';
-      try {
-        const series = await loadPublicSeriesDetail(id);
-        detail.dataset.loaded = "1";
-        detail.innerHTML = seriesDetailContentHtml(series);
-      } catch (error) {
-        console.error(error);
-        detail.innerHTML = '<div class="detail-loading">Detail could not be loaded.</div>';
-      }
-    };
-
-    window.toggleNestedWork = async function(hostId, workId) {
-      const target = document.getElementById(`${hostId}-work-${workId}`);
-      if (!target) return;
-      const markerRow = target.previousElementSibling || target;
-      markCurrentItem(markerRow);
-
-      if (target.dataset.open === "1") {
-        target.innerHTML = "";
-        target.dataset.open = "";
-        return;
-      }
-
-      target.dataset.open = "1";
-      target.innerHTML = '<div class="inline-expanded detail-loading" style="margin-top:1em; margin-bottom:1em;">Loading detail...</div>';
-      try {
-        const work = await loadPublicWorkDetail(workId);
-        target.innerHTML = `
-          <div class="inline-expanded" style="margin-top:1em; margin-bottom:1em;">
-            ${workDetailHtml(work)}
-            <div class="share-action-row">
-              <button class="text-button" type="button" onclick="openDetailPage('work', '${escapeAttr(normalizeWorkNo(work.work_no))}')">SHARE</button>
-              <button class="text-button detail-close-button" type="button" onclick="toggleNestedWork('${escapeAttr(hostId)}', '${escapeAttr(work.id)}')">CLOSE</button>
-            </div>
-          </div>
-        `;
-      } catch (error) {
-        console.error(error);
-        target.innerHTML = '<div class="inline-expanded detail-loading" style="margin-top:1em; margin-bottom:1em;">Detail could not be loaded.</div>';
-      }
-    };
-
-    window.setListMode = function(mode) {
-      activeListMode = mode === "series" ? "series" : "works";
-      render();
-    };
-
-    window.setSort = function(key) {
-      if (sortKey === key) sortDirection = sortDirection === "asc" ? "desc" : "asc";
-      else {
-        sortKey = key;
-        sortDirection = "asc";
-      }
-      render();
-    };
-
-    window.toggleStatusPanel = function() {
-      const panel = document.getElementById("statusPanel");
-      const text = document.getElementById("statusPanelText");
-      const searchLine = document.getElementById("portfolioSearchLine");
-      const open = panel.classList.toggle("open");
-      if (searchLine) searchLine.classList.toggle("search-open", open);
-      text.textContent = open ? "−" : "＋";
-      if (open) {
-        const input = document.getElementById("searchInput");
-        if (input) setTimeout(() => input.focus(), 0);
-      }
-    };
-
-    window.clearFilters = function() {
-      activeTechnique = "ALL";
-      activeProduction = "ALL";
-      activeManagement = "ALL";
-      searchInput.value = "";
-      render();
-    };
-
     window.toggleTheme = function() {
       const root = document.documentElement;
       const next = root.dataset.theme === "dark" ? "light" : "dark";
@@ -3798,47 +2847,10 @@ function normalizeWorkNo(value) {
       localStorage.setItem("wsvPortfolioTheme", next);
     };
 
-    searchInput.addEventListener("input", render);
-
-    async function loadPortfolio() {
-      try {
-        statusEl.textContent = "公開一覧を読み込み中です。";
-
-        const [seriesResult, worksResult] = await Promise.all([
-          cloudClient
-            .from("wsv_series")
-            .select("id,series_no,code,title,title_en,start_date,is_public,sort_order,created_at,updated_at,content_updated_at")
-            .eq("is_public", true)
-            .order("series_no", { ascending: true }),
-          cloudClient
-            .from("wsv_works")
-            .select("id,work_no,title,title_en,series_id,start_date,completed_date,production_status,management_status,technique,is_public,sort_order,created_at,updated_at,content_updated_at")
-            .eq("is_public", true)
-            .order("work_no", { ascending: true })
-        ]);
-
-        if (seriesResult.error) throw seriesResult.error;
-        if (worksResult.error) throw worksResult.error;
-
-        seriesRecords = seriesResult.data || [];
-        works = worksResult.data || [];
-        cloudAssets = [];
-        relatedLinks = [];
-
-        statusEl.style.display = "none";
-        safeRender();
-      } catch (error) {
-        console.error(error);
-        statusEl.textContent = "公開一覧を読み込めませんでした。公開設定またはRLSをご確認ください。";
-      }
-    }
-
     const savedTheme = localStorage.getItem("wsvPortfolioTheme");
     if (savedTheme === "dark" || savedTheme === "light") {
       document.documentElement.dataset.theme = savedTheme;
     }
-
-    loadPortfolio();
   </script>
 </body>
 </html>
